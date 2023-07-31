@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -9,10 +10,10 @@ namespace TaskManagerAPI.Web.Configurations
 {
     public static class AuthenticationExtension
     {
-        public static IServiceCollection AddAuthenticationConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddAuthenticationConfiguration(this IServiceCollection services , IConfiguration configuration)
         {
-            string secretkey = "your_secret_keyyour_secret_keyyour_secret_keyyour_secret_keyyour_secret_keyyour_secret_keyyour_secret_keyyour_secret_key";
-            byte[] key = Encoding.ASCII.GetBytes(secretkey);
+            string secretKey = configuration["Secret:Secretkey"];
+            byte[] key = Encoding.ASCII.GetBytes(secretKey);
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

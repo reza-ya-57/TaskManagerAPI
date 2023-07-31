@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using TaskManagerAPI.Core.Configurations;
 using TaskManagerAPI.Core.Entities.Base;
@@ -23,9 +24,10 @@ namespace TaskManagerAPI.Web
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(typeof(MappingProfile));
-            builder.Services.AddAuthenticationConfiguration();
+            builder.Services.AddAuthenticationConfiguration(builder.Configuration);
             builder.Services.AddCoreServices();
             builder.Services.AddInsfrastructureServices();
+            
 
 
             builder.Services.AddSwaggerGen(opt =>

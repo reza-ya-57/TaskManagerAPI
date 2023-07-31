@@ -9,6 +9,6 @@ namespace TaskManagerAPI.Infrastructure.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-
+        User GetUserByUserName(string userName);
     }
 }

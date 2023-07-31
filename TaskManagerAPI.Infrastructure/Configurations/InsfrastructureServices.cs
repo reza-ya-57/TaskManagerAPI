@@ -18,7 +18,7 @@ namespace TaskManagerAPI.Insfrastructure.Configurations
         {
             services.AddSingleton<TaskManagerContext>();
             //services.AddScoped<IUserRepository , UserRepository>();
-            services.AddScoped<IBaseRepository<User>, UserRepository>();
+            services.AddScoped<IUserRepository , UserRepository>();
             services.AddScoped<IBaseRepository<Person> , PersonRepositroy>();
             return services;
         }

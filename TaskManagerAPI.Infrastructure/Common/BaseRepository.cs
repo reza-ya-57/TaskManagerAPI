@@ -15,13 +15,11 @@ namespace TaskManagerAPI.Infrastructure.Common
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         private IConfiguration _configuration { get; }
-        private readonly string _connectionString;
-        private TaskManagerContext _context;
+        protected TaskManagerContext _context;
 
         public BaseRepository(IConfiguration configuration, TaskManagerContext context)
         {
             _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("Develop");
             _context = context;
         }
 
