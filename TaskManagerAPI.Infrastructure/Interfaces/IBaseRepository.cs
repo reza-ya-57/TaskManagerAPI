@@ -10,9 +10,9 @@ namespace TaskManagerAPI.Infrastructure.Interfaces
     public interface IBaseRepository<T> where T : BaseEntity
     {
         Task<List<T>> GetAllAsync();
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(long id);
 
         Task UpdateByIdAsync(T entity);
-        Task DeleteByIdAsync(int id);
+        Task DeleteByIdAsync(long id);
     }
 }
